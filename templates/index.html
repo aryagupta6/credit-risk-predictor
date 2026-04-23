@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Credit Risk Predictor</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 350px;
+            margin: 80px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #4facfe;
+        }
+
+        button {
+            width: 95%;
+            padding: 10px;
+            margin-top: 10px;
+            background: #4facfe;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #00c6ff;
+        }
+
+        .result {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Credit Risk Predictor</h2>
+
+    <form action="/predict" method="post">
+        <input type="number" step="any" name="Age" placeholder="Age">
+        <input type="number" step="any" name="Income" placeholder="Income">
+        <input type="number" step="any" name="Loan_Amount" placeholder="Loan Amount">
+        <input type="number" step="any" name="Credit_Score" placeholder="Credit Score">
+        <input type="number" step="any" name="Employment_Years" placeholder="Employment Years">
+        <input type="number" step="any" name="Education_Level" placeholder="Education Level">
+        <input type="number" step="any" name="Housing_Status_Own" placeholder="Own (1/0)">
+        <input type="number" step="any" name="Housing_Status_Rent" placeholder="Rent (1/0)">
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <div class="result">
+        {{ prediction_text }}
+    </div>
+</div>
+
+</body>
+</html>
