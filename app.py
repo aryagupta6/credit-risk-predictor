@@ -14,7 +14,10 @@ def home():
 
 @app.route("/predict", methods=["POST"])
 def predict():
+   try:
     features = [float(x) for x in request.form.values()]
+except:
+    return render_template("index.html", prediction_text="Invalid Input")
     final_features = np.array([features])
     
     prediction = model.predict(final_features)
